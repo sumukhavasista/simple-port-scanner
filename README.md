@@ -14,7 +14,7 @@ HTML/CSS: For creating the web interface.
 Python: The programming language used for backend logic.
 
 **Installation**
-Clone the repository: [port-scanner] (git remote add origin https://github.com/sumukhavasista/port-scanner.git)
+Clone the repository: [port-scanner] (git remote add origin [https://github.com/sumukhavasista/port-scanner.git](https://github.com/sumukhavasista/simple-port-scanner.git))
 cd port-scanner
 
 

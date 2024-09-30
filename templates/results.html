@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .host-info {
+            margin-bottom: 20px;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scan Results for {{ target }}</h1>
+
+    {% for host in results %}
+    <div class="host-info">
+        <h2>Host: {{ host.host }} ({{ host.state }})</h2>
+        {% if host.ports %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Port</th>
+                    <th>Service</th>
+                    <th>Version</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for port in host.ports %}
+                <tr>
+                    <td>{{ port.port }}</td>
+                    <td>{{ port.service }}</td>
+                    <td>{{ port.version }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No open ports found.</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    <div class="back-link">
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>
+ 
